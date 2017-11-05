@@ -1,0 +1,70 @@
+Transaction:
+
+    Transaction processing is information processing in computer science that is divided into individual, indivisible operations called transactions. Each transaction must succeed or fail as a complete unit; it can never be only partially complete. In simple words, it represent 'All or Nothing' operation.
+
+    Transaction processing is designed to maintain a system's integrity in a known, consistent state, by ensuring that interdependent operations on the system are either all completed successfully or all canceled successfully.
+
+
+    Deadlock scenario in transaction management:
+
+      Ex: If transaction (A) will perform following two operations: (operation will be perfomed in given sequence)
+              operation (X):  update cpoe medication table
+              operation (Y):  update home medication table
+
+          If transaction (B) will perform following two operations: (operation will be perfomed in given sequence)
+              operation (Y):  update home medication table
+              operation (X):  update cpoe medication table
+
+          Now if transaction (A) and (B) start at same time, and start executing their operations.
+            ->  Transaction (A) will perform operation (X), at the same time Transaction (B) will perform operation (Y). So Transaction (A) will acquire lock on cpoe medication table, and Transaction (B) will acquire lock on home medication table.
+
+            ->  Now when Transaction (A) try to perform operation (Y), it will wait for Transaction (B) to release lock for operation (Y), at the same time Transaction (B) try to perform operation (X) and it will wait for Transaction (A) to release lock for operation (X).
+
+            So at this point of time, both transaction will go into deadlock state.
+
+
+
+
+
+Exception Handling:
+
+	An exception is an event, which occurs during the execution of a program, that disrupts the normal flow of the program's instructions.
+
+			Exception hierarchy in Java
+
+					Thrwable
+					(Checked)
+					    |
+				-------------------------
+				|			|
+			     Exception		      Error
+			     (Checked)		    (Unchecked)
+				|		
+		      ----------------------
+		      |			   |
+		RuntimeException	(Checked
+		   (Unchecked)		Exceptions)
+
+
+
+	Checked And Unchecked Exceptions in Java:
+
+		Checked Exception:
+			A checked exception indicates an expected problem that can occur during normal system operation. You should use checked exceptions for all exceptional events that you can anticipate and that a well-written application should be able to handle. A checked exception extends the Exception class.
+		Ex:
+			- duplicate medication order found
+			- cannot convert home medication to inpatient medication
+
+		
+		Unchecked Exception:
+			Unchecked exceptions extend the RuntimeException. You should use them for internal errors that you can’t anticipate and that, most often, the application can’t recover from. Methods can but don’t need to handle or specify an unchecked exception. Typical examples that throw unchecked exceptions are:
+		Ex:
+	    		- the missing initialization of a variable which results in a NullPointerException or
+			- the improper use of an API that causes an IllegalArgumentException
+
+		Errors:
+			Errors are serious runtime environment problems that are almost certainly not recoverable. Most of the errors are related to JVM. Some examples are OutOfMemoryError, LinkageError, and StackOverflowError. They generally crash your program or part of the program.
+
+		
+
+
