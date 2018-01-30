@@ -1,0 +1,2 @@
+-> For insertion and updation of data based on some constants (such as type code), use enum type instead of integer arguments of data access layer methods.
+Give example with code snippet.
